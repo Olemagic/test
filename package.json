@@ -1,18 +1,15 @@
 {
-  "name": "t",
+  "name": "reverse-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "axios": "^1.1.2",
+    "axios": "^1.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-ip": "^1.0.4",
-    "helmet": "^6.0.0"
-    }
+    "helmet": "^7.0.0",
+    "express-ip": "^1.0.0"
+  }
 }
