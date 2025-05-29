@@ -5,16 +5,15 @@ const helmet = require("helmet");
 const expressip = require("express-ip");
 
 const app = express();
-const PORT = 12345;
+const PORT = process.env.PORT || 12345; // Render uses dynamic ports
 
 // Middleware
 app.use(helmet());
-app.use(express.json()); // To parse JSON request bodies
-app.use(expressip().getIpInfoMiddleware);
+app.use(express.json());
+app.use(expressip().getIpInfoMiddleware());
 
-// POST route to reverse input string
+// Route
 app.post("/reverse", (req, res) => {
-    console.log("request from: " + req.ip);
     const { input } = req.body;
 
     if (typeof input !== "string") {
@@ -25,7 +24,7 @@ app.post("/reverse", (req, res) => {
     res.json({ reversed });
 });
 
-// Fallback for other routes
+// Catch-all
 app.use((req, res) => {
     res.status(404).json({ error: "Route not found" });
 });
